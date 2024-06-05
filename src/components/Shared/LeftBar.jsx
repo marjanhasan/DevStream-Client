@@ -1,12 +1,19 @@
 import { BiSolidHome } from "react-icons/bi";
-import { CgMoreO, CgProfile } from "react-icons/cg";
+import { CgProfile } from "react-icons/cg";
 import { FaLaptopCode, FaRegEnvelope, FaSearch } from "react-icons/fa";
 import { GrGroup, GrNotification } from "react-icons/gr";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineLockOpen } from "react-icons/md";
+import { PiSignOutBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const LeftBar = () => {
+  const { logout, user } = useAuth();
+  const handleLogout = async () => {
+    await logout();
+    localStorage.removeItem("token");
+  };
   return (
     <>
       <ul className="menu pl-5 h-screen">
@@ -61,12 +68,22 @@ const LeftBar = () => {
             Profile
           </Link>
         </li>
-        <li className="text-2xl">
-          <Link to={"/user/login"}>
-            <MdOutlineLockOpen />
-            Login/Register
-          </Link>
-        </li>
+        {user ? (
+          <li className="text-2xl">
+            <Link onClick={handleLogout}>
+              <PiSignOutBold />
+              Logout
+            </Link>
+          </li>
+        ) : (
+          <li className="text-2xl">
+            <Link to={"/user/login"}>
+              <MdOutlineLockOpen />
+              Login/Register
+            </Link>
+          </li>
+        )}
+
         <li className="text-2xl mt-4">
           <Link>
             <img src="/public/logo.png" className="w-24" alt="" />

@@ -4,11 +4,13 @@ import Home from "../pages/Home";
 import AuthLayouts from "../layouts/AuthLayouts";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayouts />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -19,6 +21,7 @@ export const router = createBrowserRouter([
   {
     path: "/user",
     element: <AuthLayouts />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "login",

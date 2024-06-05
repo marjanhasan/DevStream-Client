@@ -4,8 +4,8 @@ import RightBar from "../components/Shared/RightBar";
 
 const MainLayouts = () => {
   return (
-    <div className="lg:flex relative min-h-screen">
-      <div className="w-[23%] border-r border-[#2f3336] max-h-screen sticky top-0 left-0">
+    <div className="lg:flex lg:relative lg:min-h-screen">
+      <div className="lg:w-[23%] border-r border-[#2f3336] lg:max-h-screen lg:sticky lg:top-0 lg:left-0">
         <LeftBar />
       </div>
 

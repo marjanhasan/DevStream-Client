@@ -23,14 +23,14 @@ const SearchBar = () => {
       });
   };
   return (
-    <div className="mx-5 my-3">
+    <div className=" lg:mx-5 my-3">
       <form
         onSubmit={handleSubmit}
         className="input input-bordered rounded-full bg-base-200 flex items-center gap-2"
       >
         <input
           type="text"
-          className="grow"
+          className="grow w-full"
           placeholder="Search"
           name="search"
         />

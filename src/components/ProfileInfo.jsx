@@ -48,12 +48,6 @@ const ProfileInfo = () => {
           Replies
         </a>
         <a role="tab" className="tab">
-          Highlights
-        </a>
-        <a role="tab" className="tab">
-          Articles
-        </a>
-        <a role="tab" className="tab">
           Media
         </a>
         <a role="tab" className="tab">

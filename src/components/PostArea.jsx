@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import toast from "react-hot-toast";
 import { GrLocation } from "react-icons/gr";
 import {
@@ -9,7 +10,7 @@ import {
 import { RiCalendarScheduleLine } from "react-icons/ri";
 import useAuth from "../hooks/useAuth";
 
-const PostArea = () => {
+const PostArea = ({ setCnt, cnt }) => {
   const token = localStorage.getItem("token");
   const { user } = useAuth();
   const handleSubmit = async (e) => {
@@ -32,6 +33,8 @@ const PostArea = () => {
       .then((res) => res.json())
       .then(() => {
         toast.success("Post Added Successful");
+        setCnt(cnt + 1);
+        form.reset();
       });
   };
   return (

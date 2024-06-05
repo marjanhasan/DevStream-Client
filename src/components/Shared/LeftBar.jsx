@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const LeftBar = () => {
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const handleLogout = async () => {
     await logout();
     localStorage.removeItem("token");
@@ -73,11 +73,18 @@ const LeftBar = () => {
             Logout
           </Link>
         </li>
-        <li className="text-2xl mt-4">
-          <Link>
-            <img src="/public/logo.png" className="w-24" alt="" />
-            Mr Omuk
-          </Link>
+        <li className="text-xl mt-6 flex">
+          <div className="flex gap-4">
+            <img
+              className="w-12 rounded-full border-2 border-black"
+              src={user?.photoURL || "/placeholder.jpg"}
+            />
+            <span className="text-wrap">
+              {user?.displayName
+                ? user?.displayName?.split(" ")[0]
+                : user?.email?.split("@")[0]}
+            </span>
+          </div>
         </li>
       </ul>
     </>

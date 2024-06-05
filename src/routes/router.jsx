@@ -9,16 +9,16 @@ import PrivateRoutes from "./PrivateRoutes";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <PrivateRoutes>
-        <MainLayouts />
-      </PrivateRoutes>
-    ),
+    element: <MainLayouts />,
     errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <PrivateRoutes>
+            <Home />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

@@ -3,6 +3,7 @@ import { CgMoreO, CgProfile } from "react-icons/cg";
 import { FaLaptopCode, FaRegEnvelope, FaSearch } from "react-icons/fa";
 import { GrGroup, GrNotification } from "react-icons/gr";
 import { IoSettingsOutline } from "react-icons/io5";
+import { MdOutlineLockOpen } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const LeftBar = () => {
@@ -61,9 +62,9 @@ const LeftBar = () => {
           </Link>
         </li>
         <li className="text-2xl">
-          <Link>
-            <CgMoreO />
-            More
+          <Link to={"/user/login"}>
+            <MdOutlineLockOpen />
+            Login/Register
           </Link>
         </li>
         <li className="text-2xl mt-4">

@@ -98,7 +98,7 @@ const Register = () => {
               </label>
               <input
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="confirm password"
                 className="input input-bordered rounded-lg"
                 name="confirmPassword"
                 required
@@ -117,7 +117,7 @@ const Register = () => {
             </div>
             <div className="">
               Already have account?{" "}
-              <Link to={"/user/login"} className="link link-hover">
+              <Link to={"/login"} className="link link-hover">
                 Login
               </Link>
             </div>

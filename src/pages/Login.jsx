@@ -82,7 +82,7 @@ const Login = () => {
             </div>
             <div className="">
               New Here?{" "}
-              <Link to={"/user/register"} className="link link-hover">
+              <Link to={"/register"} className="link link-hover">
                 Register
               </Link>
             </div>

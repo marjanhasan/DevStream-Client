@@ -1,8 +1,39 @@
+import { useState } from "react";
+import SearchResult from "./SearchResult";
+
 const SearchBar = () => {
+  const token = localStorage.getItem("token");
+  const [userInfo, setUserInfo] = useState({});
+  const [clicked, setClicked] = useState(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = e.target.search.value;
+    await fetch(`https://devstream-server.onrender.com/profile/${email}`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserInfo(data[0]);
+        console.log(data);
+        setClicked(true);
+      });
+  };
   return (
     <div className="mx-5 my-3">
-      <label className="input input-bordered rounded-full bg-base-200 flex items-center gap-2">
-        <input type="text" className="grow" placeholder="Search" />
+      <form
+        onSubmit={handleSubmit}
+        className="input input-bordered rounded-full bg-base-200 flex items-center gap-2"
+      >
+        <input
+          type="text"
+          className="grow"
+          placeholder="Search"
+          name="search"
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -15,7 +46,10 @@ const SearchBar = () => {
             clipRule="evenodd"
           />
         </svg>
-      </label>
+      </form>
+      <div className={`${clicked ? "block" : "hidden"}`}>
+        <SearchResult userInfo={userInfo} />
+      </div>
     </div>
   );
 };

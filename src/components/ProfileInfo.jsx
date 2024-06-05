@@ -28,7 +28,7 @@ const ProfileInfo = () => {
         });
     };
     fetchData();
-  }, [token]);
+  }, [token, user?.email]);
   return (
     <div className="pl-8">
       <h1 className="text-2xl font-bold">

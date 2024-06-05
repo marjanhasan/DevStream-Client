@@ -62,7 +62,7 @@ const LeftBar = () => {
           </Link>
         </li>
         <li className="text-2xl">
-          <Link>
+          <Link to={"/profile"}>
             <CgProfile />
             Profile
           </Link>
